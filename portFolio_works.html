@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="css/style_works.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- Navi Bar -->
+
+<header class="main_header">
+    <div class="row">
+     <div class="content"> 
+        <a class="logo" href="portFolio.html">
+          <img src="images/logo.png" height="50px" width="50px">
+        </a>
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav width="100%">
+            <ul>
+                <li><a href="portFolio_about.html">About</a></li>
+                <li><a href="#">Works</a></li>
+                <li><a href="portFolio_collection.html">Collection</a></li>
+            </ul>
+        </nav>
+      </div>
+    </div> <!-- END row -->
+</header>
+
+<!-- Home Section -->
+<div id="list">
+    <div class="work">
+      <a href="portFolio_works_1puretime.html"><img class="img" src="images/works_1.png"></a>
+      <div class="caption"><b>01.Pure Time: 인터렉션 서비스 제품 (졸업작품)</b></div>
+    </div>
+    <div class="work">
+      <a href="portFolio_works_2moment.html"><img class="img" src="images/works_2.png"></a>
+      <div class="caption"><b>02. Moment: 인터렉션 서비스</b></div>
+    </div>
+    <div class="work">
+      <a href="portFolio_works_3foofil.html"><img class="img" src="images/works_3.png"></a>
+      <div class="caption"><b>03. Foofil: 앱 서비스</b></div>
+    </div>
+    <div class="work">
+      <a href="portFolio_works_4partnership.html"><img class="img" src="images/works_4.png"></a>
+      <div class="caption"><b>04. Partner SHIP: 앱 서비스</b></div>
+    </div>
+</div>
+<div>
+  <p class="footer">THANK YOU FOR VISITING MY PORTFOLIO WEBSITE. <br> COPYRIGHT INFORMATION GOES Suzanne J. Yeon © 2018. ALL RIGHTS RESERVED.</p>
+</div>
+
+<!-- END sections -->
+
+<!-- Script Code-->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script>
+  // Sticky Header
+$(window).scroll(function() {
+
+    if ($(window).scrollTop() > 100) {
+        $('.main_header').addClass('sticky');
+    } else {
+        $('.main_header').removeClass('sticky');
+    }
+});
+
+// Mobile Navigation
+$('.mobile-toggle').click(function() {
+    if ($('.main_header').hasClass('open-nav')) {
+        $('.main_header').removeClass('open-nav');
+    } else {
+        $('.main_header').addClass('open-nav');
+    }
+});
+
+$('.main_header li a').click(function() {
+    if ($('.main_header').hasClass('open-nav')) {
+        $('.navigation').removeClass('open-nav');
+        $('.main_header').removeClass('open-nav');
+    }
+});
+/* WORK IN PROGRESS
+NAVIGATION ACTIVE STATE IN SECTION AREA
+*/
+var sections = $('section'), nav = $('nav'), nav_height = nav.outerHeight();
+ 
+$(window).on('scroll', function () {
+  var cur_pos = $(this).scrollTop();
+ 
+  sections.each(function() {
+    var top = $(this).offset().top - nav_height,
+        bottom = top + $(this).outerHeight();
+ 
+    if (cur_pos >= top && cur_pos <= bottom) {
+      nav.find('a').removeClass('active');
+      sections.removeClass('active');
+ 
+      $(this).addClass('active');
+      nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
